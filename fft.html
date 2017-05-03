@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+    }
+  </style>
+  <script src="AudioFFT.js"></script>
+
+</head>
+<body>
+  <script>
+    const audioFFT = new AudioFFT();
+    audioFFT.addEventListener((data) => {
+      console.log(data);
+    })
+    audioFFT.load('https://cf-hls-media.sndcdn.com/media/79411/159240/YeIJFrp6IRwY.128.mp3?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLWhscy1tZWRpYS5zbmRjZG4uY29tL21lZGlhLyovKi9ZZUlKRnJwNklSd1kuMTI4Lm1wMyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTQ5MzgxMjA1N319fV19&Signature=EkplexHVD0nuerwn~fon16qNWHCH8jT-KHl8WBISA5Vo~-5HZkPZGMPgc8eUBWJ7ETzMWEvNoP-kNceJn-WSi59hAWQRs8gXj98a-I9r~Amn~LuH4F9uaxTnOOfI6Mzyiy0jFp47ZPCdBNUdawt0RIzZyK53-XmUdD6tHw~NLQVcKjS4OHL-6jVhJcw9-labzPZh3Z2G4L9PU7aAfbwyGYBgpUiKjPlili06u-~Ut-tB0FGz-hT-s7Aikwt6Ng3c-JyreWbBIdbzj1bn4lCnB1XNDbk1IPclFbLtt6kLZrSCTsSis7FlCy-iLCxWfobox9gvpIoTeHGFDZiOFlpduA__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ')
+            .then(() => audioFFT.play())
+
+    const WIDTH = window.screen.width;
+    const HEIGHT = window.screen.height;
+
+    const audio = document.createElement('audio');
+    audio.style.visibility = 'hidden';
+    const audioSrc = document.createElement('source');
+
+    audio.appendChild(audioSrc);
+    document.body.appendChild(audio);
+
+    const canvas = document.createElement('canvas');
+    canvas.width = WIDTH;
+    canvas.height = HEIGHT;
+    document.body.appendChild(canvas);
+    const context = canvas.getContext('2d');
+
+    function run(t) {
+      update();
+      draw();
+      requestAnimationFrame(run);
+    }
+
+    function update() {
+
+    }
+
+    function draw() {
+
+    }
+
+    requestAnimationFrame(run);
+
+  </script>
+</body>
+</html>
